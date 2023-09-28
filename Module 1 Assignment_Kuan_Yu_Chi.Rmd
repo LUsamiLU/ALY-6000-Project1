@@ -1,0 +1,94 @@
+---
+title: "Module 1 Assignment"
+author: ""
+date: ""
+output: html_document
+---
+
+<CENTER>
+<FONT SIZE = 5, color = "red">
+<P>
+<B>ALY 6000 Introduction to Analytics</B>
+<BR>
+<B>Kuan-Yu Chi</B>
+<P>
+<B>Date:`r format(Sys.time(), '%d %B, %Y')`</B>
+<P>
+</FONT>
+</CENTER>
+
+```{r setup, include = FALSE, meassage = FALSE, warning = FALSE, echo = FALSE}
+cat("\014") # clears console 
+rm(list = ls()) # clears global environment 
+try(dev.off(dev.list()["RStudioGD"]), silent = TRUE) # clears plots
+try(p_unload(p_loaded(), character.only = TRUE), silent = TRUE) # clears packages 
+options(scipen = 100) # disables scientific notation for entire R session
+
+library(pacman)
+p_load(tidyverse)
+p_load(testthat)
+
+first_dataframe <- read.csv("ds_salaries.csv")
+```
+
+
+
+```{r Q1, include = TRUE, meassage = FALSE, warning = FALSE, echo = TRUE}
+123 * 453 
+5^2 * 40 
+TRUE & FALSE 
+TRUE | FALSE 
+75 %% 10 
+75 / 10
+```
+
+
+
+```{r Q2, include = TRUE, meassage = FALSE, warning = FALSE, echo = TRUE}
+first_vector <- c(17, 12, -33, 5)
+
+test_that("Testing Problem 2", {
+  expect_equal(first_vector[2], 12)
+  expect_length(first_vector, 4)
+  expect_equal(sum(first_vector), 1)
+})
+```
+
+
+```{r Q3, include = TRUE, meassage = FALSE, warning = FALSE, echo = TRUE}
+counting_by_fives <- c(5, 10, 15, 20, 25, 30, 35)
+
+test_that("Testing Problem 3", {
+  expect_equal(counting_by_fives[2], 10)
+  expect_length(counting_by_fives, 7)
+  expect_equal(sum(counting_by_fives), 140 )
+})
+
+```
+
+```{r Q4, include = TRUE, meassage = FALSE, warning = FALSE, echo = TRUE}
+second_vector <- seq(from = 10, to = 30, by =2)
+
+test_that("Testing Problem 4", {
+  expect_equal(second_vector[7], 22)
+  expect_length(second_vector, 11)
+  expect_equal(sum(second_vector), 220)
+})
+```
+
+<P>
+<B>
+Question 5:
+Seq function is to create a number vector from 5 to 35 by 5.</B> 
+<P>
+
+```{r Q5, include = TRUE, meassage = FALSE, warning = FALSE, echo = TRUE}
+counting_by_fives_with_seq <- seq(from = 5, to = 35, by =5)
+  
+test_that("Testing Problem 5", {
+  expect_equal(counting_by_fives_with_seq[7], 35)
+  expect_length(counting_by_fives_with_seq, 7)
+  expect_equal(sum(counting_by_fives_with_seq), 140)
+})
+```
+
